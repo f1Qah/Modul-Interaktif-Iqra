@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iqra 2: Latihan</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+  @font-face {
+    font-family: 'Waknan';
+    src: url('./fonts/WakNan.ttf') format('truetype');
+  }
+
+  .font-waknan {
+    font-family: 'Waknan', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'TraditionalArabic';
+    src: url('./fonts/TraditionalArabic-Regular.ttf') format('truetype');
+  }
+
+  .font-traditionalArabic {
+    font-family: 'TraditionalArabic', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Lateef';
+    src: url('./fonts/Lateef-Regular.ttf') format('truetype');
+  }
+
+  .font-lateef {
+    font-family: 'Lateef', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'IntroRust';
+    src: url('./fonts/introrustg-base2line.otf') format('truetype');
+  }
+
+  .font-introRust {
+    font-family: 'IntroRust', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Amiri';
+    src: url('./fonts/Amiri-Regular.ttf') format('truetype');
+  }
+
+  .font-amiri {
+    font-family: 'Amiri', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'AmiriQuran';
+    src: url('./fonts/AmiriQuranRegular.ttf') format('truetype');
+  }
+
+  .font-amiriQuran {
+    font-family: 'AmiriQuran', sans-serif;
+  }
+
+    .scrollbar-custom::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+      background-color: #d97706;
+      border-radius: 4px;
+    }
+
+    .scrollable-area {
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 h-screen">
+
+  <!-- Background GIF -->
+  <img src="./gif/1.gif" alt="Background GIF"
+    class="absolute w-screen h-screen object-fill -z-10">
+
+  <!-- HEADER -->
+  <header class="p-2 relative z-20">
+    <div class="flex items-center space-x-1">
+
+      <!-- Navigation Toggle -->
+      <div class="flex-shrink-0">
+        <button type="button" id="sidebarToggle"
+          class="py-2 inline-flex justify-center items-center rounded-lg text-yellow-300 hover:text-yellow-200">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="./index.html" class="block hover:scale-110 duration-300">
+          <img
+            src="./images/logobutton.png"
+            alt="Logo"
+            class="w-12 h-7 sm:w-12 sm:h-7 md:w-14 md:h-8 lg:w-16 lg:h-10 xl:w-[80px] xl:h-12 2xl:w-[112px] 2xl:h-[62px] object-contain rounded-lg"
+          />
+        </a>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="flex-shrink-0 overflow-x-auto px-2">
+        <ol
+          class="flex whitespace-nowrap font-waknan text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-2xl">
+          <li class="inline-flex items-center">
+            <a href="./sub.html"
+              class="flex items-center font-semibold text-yellow-300 hover:text-yellow-100">Iqra</a>
+            <svg class="shrink-0 mx-1 text-white" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+          <li class="inline-flex items-center">
+            <a href="./sub.html"
+              class="flex items-center font-semibold text-yellow-300 hover:text-yellow-100">Iqra 2</a>
+            <svg class="shrink-0 mx-1 text-white" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+          <li class="inline-flex items-center font-bold text-yellow-400 truncate" aria-current="page">
+            Latihan
+          </li>
+        </ol>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Overlay -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar"
+  class="font-waknan fixed top-0 left-0 transition-all duration-300 transform -translate-x-full h-full w-[256px] sm:w-[276px] md:w-[360px] lg:w-[476px] xl:w-[500px] 2xl:w-[528px] z-[80] bg-amber-200 border-none rounded-2xl">
+
+  <div class="flex justify-between items-center py-2 px-4 border-b border-amber-500">
+    <h3 class="font-bold text-black">
+      <img src="./images/title.png" alt="Iqra' Logo"
+        class="w-[80px] md:w-[88px] lg:w-[90px] xl:w-[150px] 2xl:w-[150px]" />
+    </h3>
+    <button type="button" id="sidebarClose"
+      class="size-8 inline-flex justify-center items-center bg-gray-100 rounded-full hover:bg-gray-200">
+      <span class="sr-only">Close</span>
+      <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="scrollable-area scrollbar-custom overflow-y-auto h-[calc(100%-64px)] p-2">
+    <nav class="w-full flex flex-col flex-wrap">
+      <ul class="space-y-4">
+        <!-- List of Iqra contents -->
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra1-submenu">
+            Iqra 1
+          </button>
+          <div id="iqra1-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra1a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/1.png" alt="Icon 1" class="size-16 mr-2"> Mengenal Nama Huruf Hijaiyah
+            </a>
+            <a href="./iqra1b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/2.png" alt="Icon 2" class="size-16 mr-2"> Belajar Huruf-huruf Hijaiyah
+            </a>
+            <a href="./iqra1c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/3.png" alt="Icon 3" class="size-16 mr-2"> Beza Bunyi Huruf
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra2-submenu">
+            Iqra 2
+          </button>
+          <div id="iqra2-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra2a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/5.png" alt="Icon 1" class="size-16 mr-2"> Sambung Huruf
+            </a>
+            <a href="./iqra2b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/6.png" alt="Icon 2" class="size-16 mr-2"> Bacaan Panjang
+            </a>
+            <a href="./iqra2c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra3-submenu">
+            Iqra 3
+          </button>
+          <div id="iqra3-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra3a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/7.png" alt="Icon 1" class="size-16 mr-2"> Baris Bawah
+            </a>
+            <a href="./iqra3b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/8.png" alt="Icon 2" class="size-16 mr-2"> Baris Depan
+            </a>
+            <a href="./iqra3c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/9.png" alt="Icon 3" class="size-16 mr-2"> Ya dan Waw Kecil
+            </a>
+            <a href="./iqra3d.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/10.png" alt="Icon 1" class="size-16 mr-2"> Ta Marbutah
+            </a>
+            <a href="./iqra3e.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/11.png" alt="Icon 2" class="size-16 mr-2"> Alif Zaidah
+            </a>
+            <a href="./iqra3f.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra4-submenu">
+            Iqra 4
+          </button>
+          <div id="iqra4-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra4a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/12.png" alt="Icon 1" class="size-16 mr-2"> Tanwin
+            </a>
+            <a href="./iqra4b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/13.png" alt="Icon 2" class="size-16 mr-2"> Mim Sakinah
+            </a>
+            <a href="./iqra4c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/14.png" alt="Icon 3" class="size-16 mr-2"> Nun Sakinah
+            </a>
+            <a href="./iqra4d.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/15.png" alt="Icon 2" class="size-16 mr-2"> Qalqalah
+            </a>
+            <a href="./iqra4e.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+      </ul>
+      <div class="h-16"></div> <!-- extra space -->
+    </nav>
+  </div>
+</div>
+
+<div id="container" class="flex flex-col items-center justify-center w-[310px] h-[188px] sm:w-[500px] md:w-[450px] lg:w-[740px] xl:w-[900px] 2xl:w-[1000px] sm:h-[300px] md:h-[270px] lg:h-[450px] xl:h-[550px] 2xl:h-[600px] bg-cover bg-center rounded-xl mx-auto relative" style="background-image: url('./sliderbg/13.png');">
+
+  <!-- Game Section -->
+  <div id="game-container" class="flex flex-col items-center w-full h-full bg-transparent mt-3 sm:mt-5 md:mt-3 lg:mt-8 xl:mt-10 2xl:mt-10">
+      <!-- Click and Submit Section -->
+      <div id="click-and-submit-container" class="flex flex-col items-center w-full h-full">
+          <p class="text-center text-[10px] sm:text-sm md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl font-normal font-waknan">Aktiviti menyambung huruf tunggal</p>
+          <p id="question-text" class="text-center text-xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-6xl 2xl:text-6xl font-semibold font-lateef mt-1 sm:mt-4 md:mt-2 lg:mt-8 xl:mt-9 2xl:mt-12"></p>
+          <p class="text-center text-[10px] sm:text-sm md:text-sm lg:text-xl xl:text-2xl 2xl:text-3xl font-normal font-waknan mt-1 sm:mt-2 md:mt-2 lg:mt-4 xl:mt-6 2xl:mt-6">Klik pada jawapan yang betul</p>
+
+          <!-- Answer Options -->
+          <div id="answer-options" class="flex flex-row justify-center space-x-4 mt-1 sm:mt-2 md:mt-2 lg:mt-6 xl:mt-10 2xl:mt-12"></div>
+
+          <!-- Dropzone -->
+          <div id="dropzone" class="relative flex flex-col items-center justify-center dropzone w-[90px] h-[25px] sm:w-[120px] md:w-[140px] lg:w-[150px] xl:w-[250px] 2xl:w-[250px] sm:h-[45px] md:h-[45px] lg:h-[58px] xl:h-[65px] 2xl:h-[65px] mx-auto mt-2 sm:mt-2 md:mt-2 lg:mt-6 xl:mt-10 2xl:mt-12 border-2 border-dashed border-black rounded-lg text-center cursor-pointer">
+              <span id="dropzone-text" class="text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-800 font-waknan">Klik semak jawapan</span>
+              <img id="feedback-icon" class="absolute top-0 -right-2 transform -translate-y-1/2 size-[40px] sm:size-[45px] md:size-[50px] lg:size-[55px] xl:size-[60px] 2xl:size-[70px] overflow-visible" />
+          </div>
+      </div>
+
+      <!-- Guess the Sound Section (Hidden Initially) -->
+      <div id="guess-sound-container" class="hidden flex-col items-center w-full h-full">
+          <p class="text-center text-base sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal font-waknan">Aktiviti mendengar bacaan</p>
+          <button id="play-sound" class="btn btn-primary border-none flex items-center justify-center bg-yellow-200 hover:bg-yellow-400 text-white rounded-full mx-auto mt-2 sm:mt-4 md:mt-4 lg:mt-14 xl:mt-20 2xl:mt-24 size-[44px] sm:size-[50px] md:size-[58px] lg:size-[70px] xl:size-[76px] 2xl:size-[86px]">
+              <img src="./icons/volume.png" alt="Play" class="size-[15px] sm:size-[20px] md:size-[25px] lg:size-[40px] xl:size-[44px] 2xl:size-[48px]">
+          </button>
+          <p class="text-center text-[9.5px] sm:text-base md:text-sm lg:text-xl xl:text-3xl 2xl:text-3xl font-normal font-waknan mt-2 sm:mt-4 md:mt-4 lg:mt-8 xl:mt-10 2xl:mt-10">Pilih perkataan yang sama dengan bacaan di atas</p>
+
+          <!-- Answer Options -->
+          <div id="guess-sound-options" class="flex flex-row justify-center space-x-4 mt-2 sm:mt-6 md:mt-4 lg:mt-10 xl:mt-12 2xl:mt-12 font-lateef"></div>
+      </div>
+   
+      <!-- Popup Message -->
+      <div id="popupMessage" class="absolute bottom-[12px] sm:bottom-[22px] md:bottom-[15px] lg:bottom-[48px] xl:bottom-[60px] 2xl:bottom-[55px] font-semibold font-waknan text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl hidden"></div>
+
+      <!-- Complete Game Section -->
+      <div id="completionSection" class="flex-col items-center justify-center text-center h-full relative hidden">
+          <!-- Image and Text Side by Side -->
+          <div class="flex flex-row items-center justify-center w-full h-full">
+              <!-- "Tahniah" Image -->
+              <img id="tahniahImage" src="./icons/tahniah.png" alt="Tahniah"
+                  class="w-[120px] h-[112px] sm:w-[180px] md:w-[170px] lg:w-[250px] xl:w-[340px] 2xl:w-[340px] sm:h-[170px] md:h-[160px] lg:h-[220px] xl:h-[320px] 2xl:h-[320px] hidden">
+              
+              <!-- Congratulation Text -->
+              <div class="flex flex-col text-left">
+                  <p class="text-center text-2xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-orange-300 font-bold font-waknan"
+                  style="text-shadow: 1px 1px 0 orange, -1px -1px 0 orange, 1px -1px 0 orange, -1px 1px 0 orange;">
+                      Syabas,
+                  </p>
+                  <p class="text-center text-lg sm:text-3xl md:text-2xl lg:text-5xl xl:text-6xl 2xl:text-6xl text-orange-300 font-bold font-waknan"
+                  style="text-shadow: 1px 1px 0 orange, -1px -1px 0 orange, 1px -1px 0 orange, -1px 1px 0 orange;">
+                      Anda telah berjaya!
+                  </p>
+              </div>
+          </div>
+
+          <!-- Confetti GIF -->
+          <img id="confettiGif" src="./icons/confetti.gif" alt="Confetti" class="absolute bottom-0 hidden">
+
+          <!-- Main Semula Button -->
+          <button id="replayButton"
+              class="absolute right-0 sm:right-0 md:right-2 lg:-right-2 xl:right-4 2xl:right-4 bottom-4 sm:bottom-6 md:bottom-6 lg:bottom-12 xl:bottom-14 2xl:bottom-14 bg-transparent text-teal-200 px-4 py-2 mt-4 rounded-lg text-base sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-waknan hover:text-blue-400 transition-all duration-300"
+              style="text-shadow: 1px 1px 0 blue, -1px -1px 0 blue, 1px -1px 0 blue, -1px 1px 0 blue;">
+              Main Semula
+          </button>
+      </div>
+  </div>
+</div>
+
+<div id="bgm-container"></div>
+  
+  <script>
+    
+  // Additional script for background music
+  fetch('bgm.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('bgm-container').innerHTML = html;
+    })
+    .then(() => {
+      import('./bgm.js').then(({ setupBackgroundMusic }) => {
+        setupBackgroundMusic(); // Call after DOM insert
+      });
+    });
+    
+  // Sidebar Toggle
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebarClose = document.getElementById('sidebarClose');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  // Open Sidebar and Show Overlay
+  function openSidebar() {
+    sidebar.classList.remove('-translate-x-full');
+    sidebarOverlay.classList.remove('hidden');
+  }
+
+  // Close Sidebar and Hide Overlay
+  function closeSidebar() {
+    sidebar.classList.add('-translate-x-full');
+    sidebarOverlay.classList.add('hidden');
+  }
+
+  // Event Listeners
+  if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+  if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // Accordion Toggle
+  document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-target');
+      const target = document.getElementById(targetId);
+
+      // Close other accordion contents
+      document.querySelectorAll('.accordion-content').forEach(content => {
+        if (content.id !== targetId) {
+          content.classList.add('hidden');
+        }
+      });
+
+      target.classList.toggle('hidden');
+    });
+  });
+
+  // Highlight active sidebar link based on current URL
+  const currentPath = window.location.pathname.split('/').pop(); // Get the current file name only
+  const sidebarLinks = document.querySelectorAll('#sidebar a');
+
+  sidebarLinks.forEach(link => {
+    const href = link.getAttribute('href').split('/').pop(); // Get the file name from the href
+
+    if (href === currentPath) {
+      // Highlight the link
+      link.classList.add('bg-orange-300', 'font-bold');
+
+      // Expand its parent accordion if it's hidden
+      const parentAccordion = link.closest('.accordion-content');
+      if (parentAccordion) {
+        parentAccordion.classList.remove('hidden');
+      }
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const correctSound = new Audio("./sounds/correct.aac");
+    const wrongSound = new Audio("./sounds/wrong.aac");
+    const clickAndSubmitQuestions = [
+      { text: " ______ = بَ تَ ", correct: "بَتَ", options: ["بَتَ", "تَبَ", "بَدَ"] },
+      { text: " ______ = غَ يَ ضَ ", correct: "غَيَضَ", options: ["يَغَضَ","ضَيَغَ", "غَيَضَ"] },
+      { text: " ______ = سَ كَ تَ ", correct: "سَكَتَ", options: ["سَ كَتَ", "سَكَتَ", "تَكَسَ"] },
+      { text: " ______ = لَ أَ مَ رَ ", correct: "لَأَمَرَ", options: ["لَأَمَرَ", "لَ أَمَرَ", "أَلَمَرَ"] },
+      { text: " ______ = هَ شَ مَ ", correct: "هَشَمَ", options: ["مَشَهَ", "هَشَمَ", "هَسَمَ"] }
+    ];
+
+    const guessSoundQuestions = [
+      { file: "./sounds/iqra2/Panjang/(5).aac", correct: "عَابَدَ", options: ["عَابَدَ", "عَبَدَ", "عَبَادَ"] },
+      { file: "./sounds/iqra2/Panjang/(11).aac", correct: "رَاذَلَ", options: ["فَرَذَلاَ", "رَذّلَتَا", "رَاذَلَ"] },
+      { file: "./sounds/iqra2/Panjang/(16).aac", correct: "فَهَجَمَا", options: ["هَجَمَتَا", "فَهَجَمَا", "هَاجَمَ"] },
+      { file: "./sounds/iqra2/Panjang/(25).aac", correct: "لَحَدَ", options: ["لَحَدَ", "سَخَرَ", "عَجَلَ"] },
+      { file: "./sounds/iqra2/Panjang/(37).aac", correct: "فَنَادَىٰ", options: ["وَهَـٰذَا", "فَنَادَىٰ", "نَصَـٰرَىٰ"] }
+    ];
+
+    let currentClickAndSubmitIndex = 0;
+    let currentGuessSoundIndex = 0;
+    let selectedAnswer = null;
+    let soundPlayed = false;
+    let isPlaying = false;
+
+    function showPopupMessage(message, color = "text-green-500") {
+      const popupMessage = document.getElementById("popupMessage");
+      popupMessage.textContent = message;
+      popupMessage.className = `absolute bottom-[12px] sm:bottom-[22px] md:bottom-[15px] lg:bottom-[48px] xl:bottom-[50px] 2xl:bottom-[55px] font-semibold font-waknan text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-5xl ${color}`;
+      popupMessage.classList.remove("hidden");
+
+      setTimeout(() => {
+        popupMessage.classList.add("hidden");
+      }, 2000);
+    }
+
+    function loadClickAndSubmit() {
+      const questionText = document.getElementById("question-text");
+      const answerOptions = document.getElementById("answer-options");
+      const dropzoneText = document.getElementById("dropzone-text");
+      const dropzone = document.getElementById("dropzone");
+      const feedbackIcon = document.getElementById("feedback-icon");
+
+      let question = clickAndSubmitQuestions[currentClickAndSubmitIndex];
+      questionText.textContent = question.text;
+      answerOptions.innerHTML = "";
+      dropzoneText.textContent = "Klik semak jawapan";
+      dropzoneText.className = "text-[8px] sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-800 font-waknan"; // Default class for "Klik semak jawapan"
+      dropzone.classList.remove("bg-green-300", "bg-red-300");
+      feedbackIcon.classList.add("hidden");
+      selectedAnswer = null;
+
+      question.options.forEach(option => {
+        let button = document.createElement("div");
+        button.className =
+          "answer-option w-[85px] h-[30px] sm:w-[100px] md:w-[120px] lg:w-[150px] xl:w-[200px] 2xl:w-[200px] sm:h-[48px] md:h-[50px] lg:h-[66px] xl:h-[75px] 2xl:h-[80px] bg-orange-300 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal font-lateef flex items-center justify-center rounded-xl cursor-pointer transition-all border-transparent border-4";
+        button.textContent = option;
+        button.onclick = function () {
+          document.querySelectorAll(".answer-option").forEach(btn => {
+            btn.classList.remove("border-blue-400");
+          });
+          button.classList.add("border-blue-400");
+          selectedAnswer = option;
+          dropzoneText.textContent = option;
+          dropzoneText.className = "text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-normal font-lateef text-black"; // Only change class for selected answer
+        };
+        answerOptions.appendChild(button);
+      });
+
+      dropzone.onclick = function () {
+        if (selectedAnswer) {
+          feedbackIcon.classList.remove("hidden");
+          document.querySelectorAll(".answer-option").forEach(btn => {
+            btn.classList.add("bg-orange-600/10", "cursor-not-allowed");
+            btn.onclick = null;
+          });
+
+          if (selectedAnswer === question.correct) {
+            dropzone.classList.add("bg-green-300");
+            feedbackIcon.src = "./icons/right.png";
+            correctSound.play();
+            showPopupMessage("Betul!", "text-green-500");
+
+            setTimeout(() => {
+              if (currentClickAndSubmitIndex < clickAndSubmitQuestions.length - 1) {
+                currentClickAndSubmitIndex++;
+                loadClickAndSubmit();
+              } else {
+                document.getElementById("click-and-submit-container").classList.add("hidden");
+                document.getElementById("guess-sound-container").classList.remove("hidden");
+                loadGuessSound();
+              }
+            }, 2000);
+          } else {
+            dropzone.classList.add("bg-red-300");
+            feedbackIcon.src = "./icons/wrong.png";
+            wrongSound.play();
+            showPopupMessage("Cuba lagi!", "text-red-500");
+
+            setTimeout(() => {
+              loadClickAndSubmit();
+            }, 1000);
+          }
+        }
+      };
+    }
+
+    
+  //Guess Sound Question function
+  function loadGuessSound() {
+  const guessSoundOptions = document.getElementById("guess-sound-options");
+  let question = guessSoundQuestions[currentGuessSoundIndex];
+  guessSoundOptions.innerHTML = "";
+  soundPlayed = false;
+  isPlaying = false;
+
+  // Create answer options dynamically
+  // Inside loadGuessSound() function
+  question.options.forEach((option) => {
+    let button = document.createElement("div");
+    button.className =
+      "w-[75px] h-[35px] sm:w-[100px] md:w-[120px] lg:w-[150px] xl:w-[200px] 2xl:w-[200px] sm:h-[48px] md:h-[50px] lg:h-[66px] xl:h-[80px] 2xl:h-[80px] bg-orange-600/10 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal font-lateef flex items-center justify-center rounded-xl relative cursor-not-allowed"; 
+
+    button.textContent = option;
+
+    // Feedback icon setup
+    let feedbackIcon = document.createElement("img");
+    feedbackIcon.className = "absolute -top-4 -right-3 size-[35px] sm:size-[45px] md:size-[50px] lg:size-[55px] xl:size-[60px] 2xl:size-[70px] overflow-visible hidden";
+    button.appendChild(feedbackIcon);
+
+    // Button click handling
+    button.onclick = function () {
+      if (soundPlayed) {
+        feedbackIcon.classList.remove("hidden");
+
+        // Disable all options after one is selected
+        document.querySelectorAll("#guess-sound-options div").forEach(btn => {
+          btn.classList.add("cursor-not-allowed");
+          btn.classList.remove("cursor-pointer", "hover:bg-orange-500");
+          btn.onclick = null; // Disable button clicks
+        });
+
+        if (option === question.correct) {
+          button.classList.add("bg-green-300");
+          feedbackIcon.src = "./icons/right.png"; // Correct answer feedback
+          correctSound.play();
+          showPopupMessage("Betul!", "text-green-500");
+
+          setTimeout(() => {
+            if (currentGuessSoundIndex < guessSoundQuestions.length - 1) {
+              currentGuessSoundIndex++;
+              loadGuessSound(); // Load the next question if answered correctly
+            } else {
+              showCompletionScreen(); // If it's the last question, show the completion screen
+            }
+          }, 2000);
+        } else {
+          button.classList.add("bg-red-300");
+          feedbackIcon.src = "./icons/wrong.png"; // Wrong answer feedback
+          wrongSound.play();
+          showPopupMessage("Cuba lagi!", "text-red-500");
+
+          // Reset the answers like the "Click and Submit" question on incorrect answer
+          setTimeout(() => {
+            // Reset the answers
+            loadGuessSound();
+          }, 1000);
+        }
+      }
+    };
+
+    guessSoundOptions.appendChild(button);
+  });
+
+  // Setup for the 'Play Sound' button
+  document.getElementById("play-sound").onclick = function () {
+    if (!isPlaying) {
+      let audio = new Audio(question.file);
+      isPlaying = true;
+      audio.play();
+
+      // Disable cursor on answer options while the sound is playing
+      document.querySelectorAll("#guess-sound-options div").forEach(option => {
+        option.classList.add("cursor-not-allowed");
+        option.classList.remove("cursor-pointer", "hover:bg-orange-500");
+      });
+
+      // When audio finishes playing, enable the answers and reset the background color to normal
+      audio.onended = function () {
+        soundPlayed = true;
+        isPlaying = false;
+
+        // Enable cursor on answer options after sound finishes
+        const options = document.querySelectorAll("#guess-sound-options div");
+        options.forEach(option => {
+          option.classList.remove("cursor-not-allowed");
+          option.classList.add("cursor-pointer");
+          option.classList.remove("bg-orange-600/10");
+          option.classList.add("bg-orange-300");
+        });
+      };
+    }
+  };
+}
+
+
+    function showCompletionScreen() {
+      document.getElementById("guess-sound-container").classList.add("hidden");
+      document.getElementById("completionSection").classList.remove("hidden");
+      document.getElementById("tahniahImage").classList.remove("hidden");
+      document.getElementById("confettiGif").classList.remove("hidden");
+    }
+  
+    document.getElementById("replayButton").onclick = function () {
+      location.reload();
+    };
+  
+    loadClickAndSubmit();
+  });
+</script>
+
+  
+
+</body>
+
+</html>
+

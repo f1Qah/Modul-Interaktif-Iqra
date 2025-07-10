@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iqra</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+    font-family: 'Waknan';
+    src: url('./fonts/WakNan.ttf') format('truetype');
+  }
+
+  .font-waknan {
+    font-family: 'Waknan', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'TraditionalArabic';
+    src: url('./fonts/TraditionalArabic-Regular.ttf') format('truetype');
+  }
+
+  .font-traditionalArabic {
+    font-family: 'TraditionalArabic', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Lateef';
+    src: url('./fonts/Lateef-Regular.ttf') format('truetype');
+  }
+
+  .font-lateef {
+    font-family: 'Lateef', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'IntroRust';
+    src: url('./fonts/introrustg-base2line.otf') format('truetype');
+  }
+
+  .font-introRust {
+    font-family: 'IntroRust', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Amiri';
+    src: url('./fonts/Amiri-Regular.ttf') format('truetype');
+  }
+
+  .font-amiri {
+    font-family: 'Amiri', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'AmiriQuran';
+    src: url('./fonts/AmiriQuranRegular.ttf') format('truetype');
+  }
+
+  .font-amiriQuran {
+    font-family: 'AmiriQuran', sans-serif;
+  }
+
+    /* Custom Scrollbar */
+    .scrollbar-custom::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <div class="animate-fade page-background max-h-screen flex flex-col items-center justify-center">
+    <!-- Background GIF -->
+    <img src="./gif/2.gif" alt="video/gif" class="absolute w-screen h-screen object-fill z-10" />
+  
+    <div class="flex flex-col items-center justify-center h-screen z-10">
+      <!-- Centered Image at the Top -->
+      <img src="./images/title.png"
+           alt="Iqra' Logo"
+           class="max-w-[150px] min-w-[50px] sm:min-w-[50px] md:min-w-[170px] lg:min-w-[250px] xl:min-w-[288px] 2xl:min-w-[300px] z-10" />
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-4 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-10 justify-center animate-fade-up z-10 mx-auto">
+        <!-- Iqra1 -->
+        <button type="button" class="flex items-center justify-center " onclick="openModal(1)">
+          <img src="./images/iqra1.png" alt="Button 1" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 w-[96px] sm:w-[120px] md:w-[120px] lg:w-[144px] xl:w-[160px] 2xl:w-[170px]" />
+        </button>
+        <!-- Iqra2 -->
+        <button type="button" class="flex items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" onclick="openModal(2)">
+          <img src="./images/iqra2.png" alt="Button 2" class="mt-[16px] w-[96px] sm:w-[120px] md:w-[120px] lg:w-[142px] xl:w-[160px] 2xl:w-[172px]" />
+        </button>
+        <!-- Iqra3 -->
+        <button type="button" class="flex items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" onclick="openModal(3)">
+          <img src="./images/iqra3.png" alt="Button 3" class="mb-[8px] w-[100px] sm:w-[130px] md:w-[130px] lg:w-[150px] xl:w-[170px] 2xl:w-[182px]" />
+        </button>
+        <!-- Iqra4 -->
+        <button type="button" class="flex items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" onclick="openModal(4)">
+          <img src="./images/iqra4.png" alt="Button 4" class="w-[94px] sm:w-[120px] md:w-[125px] lg:w-[144px] xl:w-[160px] 2xl:w-[170px]" />
+        </button>
+      </div>
+
+      <h1 class="animation animate-fade-up text-center text-black text-base sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold font-waknan z-10">
+        Pilih buku dan klik bagi memulakan pembelajaran
+      </h1>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal1" class="hs-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50  items-center justify-center">
+        <div class="modal-content bg-red-100 border shadow-sm rounded-xl w-[320px] h-[266px] sm:w-[380px] md:w-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[550px] sm:h-[300px] md:h-[280px] lg:h-[320px] xl:h-[350px] 2xl:h-[350px]">
+        <div class="flex justify-center items-center px-4 border-b-2 border-gray-400 py-2">
+          <h3 class="font-bold text-gray-800">
+            <img src="./icons/1.png" alt="Iqra' Logo" class="h-[58px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[78px] 2xl:h-[85px] w-[112px] sm:w-[120px] md:w-[120px] lg:w-[138px] xl:w-[160px] 2xl:w-[180px]" />
+          </h3>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2 font-waknan text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[28px] text-center mt-2">
+          <a href="./iqra1a.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">
+            Mengenal nama huruf hijaiyah
+          </a>
+          <a href="./iqra1b.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">
+            Belajar huruf hijaiyah
+          </a>
+          <a href="./iqra1c.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">
+            Beza bunyi huruf
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+<div id="modal2" class="hs-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50  items-center justify-center">
+      <div class="flex flex-col bg-green-100 border shadow-sm rounded-xl w-[320px] h-[266px] sm:w-[380px] md:w-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[550px] sm:h-[300px] md:h-[280px] lg:h-[320px] xl:h-[350px] 2xl:h-[350px]">
+        <div class="flex justify-center items-center px-4 border-b-2 border-gray-400 py-1">
+          <h3 id="hs-slide-up-animation-modal-label" class="font-bold text-gray-800 py-1">
+            <img src="./icons/2.png" alt="Iqra' Logo" class="h-[58px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[78px] 2xl:h-[85px] w-[112px] sm:w-[120px] md:w-[120px] lg:w-[138px] xl:w-[160px] 2xl:w-[180px]" />
+          </h3>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2 font-waknan text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[28px] text-center mt-2">
+          <a href="./iqra2a.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Sambungan huruf</a>
+          <a href="./iqra2b.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Bacaan panjang</a>
+          <a href="./iqra2c.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Latihan</a>
+        </div>
+      </div>
+    </div>
+ 
+  
+  <!-- Modal 3 -->
+  <div id="modal3" class="hs-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 items-center justify-center">
+      <div class="flex flex-col bg-blue-100 border shadow-sm rounded-xl w-[330px] h-[290px] sm:w-[400px] md:w-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[550px] sm:h-[300px] md:h-[300px] lg:h-[320px] xl:h-[350px] 2xl:h-[350px]">
+        <div class="flex justify-center items-center px-4 border-b-2 border-gray-400 py-2">
+          <h3 id="hs-slide-up-animation-modal-label" class="font-bold text-gray-800 py-1">
+            <img src="./icons/3.png" alt="Iqra' Logo" class="h-[58px] sm:h-[65px] md:h-[68px] lg:h-[70px] xl:h-[78px] 2xl:h-[85px] w-[112px] sm:w-[120px] md:w-[135px] lg:w-[138px] xl:w-[140px] 2xl:w-[180px]" />
+          </h3>
+        </div>
+        <div class="scrollable-area flex flex-col justify-center items-center space-y-2 font-waknan text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[28px] text-center overflow-y-auto scrollbar-custom pt-[198px]">
+          <a href="./iqra3a.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl mt-4">Baris Bawah</a>
+          <a href="./iqra3b.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[65px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Baris Depan</a>
+          <a href="./iqra3c.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Ya dan Waw Kecil</a>
+          <a href="./iqra3d.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Ta Marbutah</a>
+          <a href="./iqra3e.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Alif Zaidah</a>
+          <a href="./iqra3f.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[75px] 2xl:h-[75px] mx-auto py-4 rounded-xl">Latihan</a>
+        </div>
+      </div>
+    </div>
+  
+  <!-- Modal 4 -->
+  <div id="modal4" class="hs-overlay hidden fixed inset-0 bg-black bg-opacity-50 z-50 items-center justify-center">
+      <div class="flex flex-col bg-amber-100 border shadow-sm rounded-xl w-[330px] h-[280px] sm:w-[380px] md:w-[400px] lg:w-[500px] xl:w-[550px] 2xl:w-[550px] sm:h-[300px] md:h-[280px] lg:h-[320px] xl:h-[350px] 2xl:h-[350px]">
+        <div class="flex justify-center items-center px-4 border-b-2 border-gray-400">
+          <h3 id="hs-slide-up-animation-modal-label" class="font-bold text-gray-800 py-2">
+            <img src="./icons/4.png" alt="Iqra' Logo" class="h-[58px] sm:h-[65px] md:h-[68px] lg:h-[70px] xl:h-[78px] 2xl:h-[85px] w-[112px] sm:w-[120px] md:w-[135px] lg:w-[138px] xl:w-[140px] 2xl:w-[180px]" />
+          </h3>
+        </div>
+        <div class="scrollable-area flex flex-col justify-center items-center space-y-2 font-waknan text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-[28px] 2xl:text-[28px] text-center overflow-y-auto scrollbar-custom pt-[120px] sm:pt-[140px] lg:pt-[140px] xl:pt-[120px] 2xl:pt-[120px]">
+          <a href="./iqra4a.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[80px] mx-auto py-4 rounded-xl">Tanwin</a>
+          <a href="./iqra4b.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[80px] mx-auto py-4 rounded-xl">Mim Sakinah</a>
+          <a href="./iqra4c.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[80px] mx-auto py-4 rounded-xl">Nun Sakinah</a>
+          <a href="./iqra4d.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[80px] mx-auto py-4 rounded-xl">Qalqalah</a>
+          <a href="./iqra4e.html" class="bg-transparent transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-100 duration-300 hover:bg-orange-300 hover:shadow-xl text-black w-full h-[55px] sm:h-[65px] md:h-[60px] lg:h-[70px] xl:h-[80px] 2xl:h-[80px] mx-auto py-4 rounded-xl">Latihan</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="bgm-container"></div>
+
+<script>
+  // Open Modal function
+  window.openModal = function(modalNumber) {
+    const modal = document.getElementById('modal' + modalNumber);
+    if (modal) {
+      modal.classList.remove('hidden');
+      modal.classList.add("flex");
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          closeModal(modalNumber);
+        }
+      });
+    }
+  }
+
+  // Close Modal function
+  window.closeModal = function(modalNumber) {
+    const modal = document.getElementById('modal' + modalNumber);
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove("flex");
+    }
+  }
+
+  // Additional script for background music
+  fetch('bgm.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('bgm-container').innerHTML = html;
+    })
+    .then(() => {
+      import('./bgm.js').then(({ setupBackgroundMusic }) => {
+        setupBackgroundMusic(); // Call after DOM insert
+      });
+    });
+</script>
+
+  
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iqra 3: Baris Bawah</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+   @font-face {
+    font-family: 'Waknan';
+    src: url('./fonts/WakNan.ttf') format('truetype');
+  }
+
+  .font-waknan {
+    font-family: 'Waknan', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'TraditionalArabic';
+    src: url('./fonts/TraditionalArabic-Regular.ttf') format('truetype');
+  }
+
+  .font-traditionalArabic {
+    font-family: 'TraditionalArabic', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Lateef';
+    src: url('./fonts/Lateef-Regular.ttf') format('truetype');
+  }
+
+  .font-lateef {
+    font-family: 'Lateef', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'IntroRust';
+    src: url('./fonts/introrustg-base2line.otf') format('truetype');
+  }
+
+  .font-introRust {
+    font-family: 'IntroRust', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Amiri';
+    src: url('./fonts/Amiri-Regular.ttf') format('truetype');
+  }
+
+  .font-amiri {
+    font-family: 'Amiri', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'AmiriQuran';
+    src: url('./fonts/AmiriQuranRegular.ttf') format('truetype');
+  }
+
+  .font-amiriQuran {
+    font-family: 'AmiriQuran', sans-serif;
+  }
+
+    .scrollbar-custom::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+      background-color: #d97706;
+      border-radius: 4px;
+    }
+
+    .scrollable-area {
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 max-h-screen">
+
+  <!-- Background GIF -->
+  <img src="./gif/6.gif" alt="Background GIF"
+    class="absolute w-screen h-screen object-fill -z-10">
+
+  <!-- HEADER -->
+  <header class="p-2 relative z-20">
+    <div class="flex items-center space-x-1">
+
+      <!-- Navigation Toggle -->
+      <div class="flex-shrink-0">
+        <button type="button" id="sidebarToggle"
+          class="py-2 inline-flex justify-center items-center rounded-lg text-yellow-300 hover:text-yellow-200">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="./index.html" class="block hover:scale-110 duration-300">
+          <img
+            src="./images/logobutton.png"
+            alt="Logo"
+            class="w-12 h-7 sm:w-12 sm:h-7 md:w-14 md:h-8 lg:w-16 lg:h-10 xl:w-[80px] xl:h-12 2xl:w-[112px] 2xl:h-[62px] object-contain rounded-lg"
+          />
+        </a>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="flex-shrink-0 overflow-x-auto px-2">
+        <ol
+          class="flex whitespace-nowrap font-waknan text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-2xl">
+          <li class="inline-flex items-center">
+            <a href="./sub.html"
+              class="flex items-center font-semibold text-yellow-300 hover:text-yellow-100">Iqra</a>
+            <svg class="shrink-0 mx-1 text-white" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+          <li class="inline-flex items-center">
+            <a href="./sub.html"
+              class="flex items-center font-semibold text-yellow-300 hover:text-yellow-100">Iqra 3</a>
+            <svg class="shrink-0 mx-1 text-white" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+          <li class="inline-flex items-center font-bold text-yellow-400 truncate" aria-current="page">
+            Baris Bawah
+          </li>
+        </ol>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Overlay -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar"
+  class="font-waknan fixed top-0 left-0 transition-all duration-300 transform -translate-x-full h-full w-[256px] sm:w-[276px] md:w-[360px] lg:w-[476px] xl:w-[500px] 2xl:w-[528px] z-[80] bg-amber-200 border-none rounded-2xl">
+
+  <div class="flex justify-between items-center py-2 px-4 border-b border-amber-500">
+    <h3 class="font-bold text-black">
+      <img src="./images/title.png" alt="Iqra' Logo"
+        class="w-[80px] md:w-[88px] lg:w-[90px] xl:w-[150px] 2xl:w-[150px]" />
+    </h3>
+    <button type="button" id="sidebarClose"
+      class="size-8 inline-flex justify-center items-center bg-gray-100 rounded-full hover:bg-gray-200">
+      <span class="sr-only">Close</span>
+      <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="scrollable-area scrollbar-custom overflow-y-auto h-[calc(100%-64px)] p-2">
+    <nav class="w-full flex flex-col flex-wrap">
+      <ul class="space-y-4">
+        <!-- List of Iqra contents -->
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra1-submenu">
+            Iqra 1
+          </button>
+          <div id="iqra1-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra1a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/1.png" alt="Icon 1" class="size-16 mr-2"> Mengenal Nama Huruf Hijaiyah
+            </a>
+            <a href="./iqra1b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/2.png" alt="Icon 2" class="size-16 mr-2"> Belajar Huruf-huruf Hijaiyah
+            </a>
+            <a href="./iqra1c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/3.png" alt="Icon 3" class="size-16 mr-2"> Beza Bunyi Huruf
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra2-submenu">
+            Iqra 2
+          </button>
+          <div id="iqra2-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra2a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/5.png" alt="Icon 1" class="size-16 mr-2"> Sambung Huruf
+            </a>
+            <a href="./iqra2b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/6.png" alt="Icon 2" class="size-16 mr-2"> Bacaan Panjang
+            </a>
+            <a href="./iqra2c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra3-submenu">
+            Iqra 3
+          </button>
+          <div id="iqra3-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra3a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/7.png" alt="Icon 1" class="size-16 mr-2"> Baris Bawah
+            </a>
+            <a href="./iqra3b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/8.png" alt="Icon 2" class="size-16 mr-2"> Baris Depan
+            </a>
+            <a href="./iqra3c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/9.png" alt="Icon 3" class="size-16 mr-2"> Ya dan Waw Kecil
+            </a>
+            <a href="./iqra3d.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/10.png" alt="Icon 1" class="size-16 mr-2"> Ta Marbutah
+            </a>
+            <a href="./iqra3e.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/11.png" alt="Icon 2" class="size-16 mr-2"> Alif Zaidah
+            </a>
+            <a href="./iqra3f.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra4-submenu">
+            Iqra 4
+          </button>
+          <div id="iqra4-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra4a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/12.png" alt="Icon 1" class="size-16 mr-2"> Tanwin
+            </a>
+            <a href="./iqra4b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/13.png" alt="Icon 2" class="size-16 mr-2"> Mim Sakinah
+            </a>
+            <a href="./iqra4c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/14.png" alt="Icon 3" class="size-16 mr-2"> Nun Sakinah
+            </a>
+            <a href="./iqra4d.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/15.png" alt="Icon 2" class="size-16 mr-2"> Qalqalah
+            </a>
+            <a href="./iqra4e.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+      </ul>
+      <div class="h-16"></div> <!-- extra space -->
+    </nav>
+  </div>
+</div>
+
+
+<!-- Carousel Container -->
+<div data-hs-carousel='{
+    "loadingClasses": "opacity-0"
+  }' class="flex flex-col justify-center items-center">
+  
+<div id="carousel-container" class="hs-carousel relative overflow-hidden min-w-[300px] min-h-[170px] sm:min-w-[550px] sm:min-h-[270px] md:min-w-[500px] md:min-h-[250px] lg:min-w-[900px] lg:min-h-[450px] xl:min-w-[1010px] xl:min-h-[510px] 2xl:min-w-[1200px] 2xl:min-h-[600px] bg-cover bg-center rounded-lg" style="background-image: url('./sliderbg/2.png');">
+    
+    <!-- Carousel Slides Wrapper -->
+    <div id="carousel-slides" class="absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700">
+
+      <!-- Slide 1 -->
+      <div class="flex-shrink-0 w-full flex flex-col items-center justify-start mt-5 sm:mt-4 md:mt-4 lg:mt-8 xl:mt-10 2xl:mt-16">
+        <div class="flex flex-row text-center">
+          <h1 class="text-center text-yellow-200 pr-2 text-[10px] sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-semibold font-waknan">
+            Bacaan  
+         </h1>
+         <h1 class="text-center text-red-500 text-[10px] sm:text-lg md:text-xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-semibold font-waknan">
+           pendek.
+         </h1>
+         </div>
+         <h2 class="text-center text-amber-400 text-[10px] sm:text-sm md:text-xl lg:text-xl xl:text-4xl 2xl:text-4xl  font-normal font-waknan px-3.5">
+           Klik perkataan bagi mendengar cara sebutan.
+         </h2>
+         <!--Text -->
+         <div class="flex flex-col gap-8 justify-center items-center h-[105px] sm:h-[200px] md:h-[170px] lg:h-[340px] xl:h-[350px] 2xl:h-[400px]">
+  
+          <div class="grid grid-cols-1 gap-4">
+            <!-- sounds1 buttons -->
+          </div>
+          
+          <div class="grid grid-cols-4 gap-4">
+            <!-- sounds2 buttons -->
+          </div>
+          
+          <div class="grid grid-cols-2 gap-4">
+            <!-- sounds3 buttons -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="flex-shrink-0 w-full flex flex-col items-center justify-start mt-5 sm:mt-4 md:mt-4 lg:mt-8 xl:mt-10 2xl:mt-16">
+        <div class="flex flex-row text-center">
+          <h1 class="text-center text-yellow-200 pr-2 text-[10px] sm:text-base md:text-base lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold font-waknan">
+            Dibaca dengan  
+         </h1>
+         <h1 class="text-center text-red-500 text-[10px] sm:text-base md:text-base lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold  font-waknan">
+          suara panjang (Mad - 2 harakat).
+         </h1>
+         </div>
+         <h1 class="text-center text-amber-400 text-[10px] sm:text-sm md:text-base lg:text-2xl xl:text-3xl 2xl:text-3xl  font-normal font-waknan px-3.5">
+           Klik perkataan bagi mendengar cara sebutan.
+         </h1>
+
+          <!--Text -->
+          <div class="grid grid-cols-3 justify-center items-center h-[100px] sm:h-[200px] md:h-[170px] lg:h-[320px] xl:h-[350px] 2xl:h-[400px]">
+            <!-- Buttons Slide 2 -->
+          </div>
+      </div>
+    </div>
+ </div>
+
+    <!-- Carousel Controls -->
+    <button id="prevBtn" class="absolute start-0 inline-flex justify-center items-center w-[26px] h-[60px] text-gray-800 hover:text-gray-300 focus:outline-none rounded-s-lg ml-2 sm:ml-2 md:ml-4 lg:ml-8 xl:ml-10 2xl:ml-12 my-auto">
+      <svg class="size-6 sm:size-6 md:size-8 lg:size-10 xl:size-12 2xl:size-14" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"></path>
+      </svg>
+      <span class="sr-only">Previous</span>
+    </button>
+
+    <button id="nextBtn" class="absolute end-0 inline-flex justify-center items-center w-[26px] h-[60px] text-gray-800 hover:text-gray-300 focus:outline-none rounded-e-lg mr-2 sm:mr-4 md:mr-4 lg:mr-8 xl:mr-10 2xl:mr-12">
+      <svg class="size-6 sm:size-6 md:size-8 lg:size-10 xl:size-12 2xl:size-14" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m9 18 6-6-6-6"></path>
+      </svg>
+      <span class="sr-only">Next</span>
+    </button>
+
+
+  <!-- Carousel Pagination -->
+  <div id="pagination" class="flex justify-center space-x-2 text-orange-500 font-introRust">
+    <!-- Will populate with JS -->
+  </div>
+</div>
+
+<div id="bgm-container"></div>
+  
+  <script>
+    
+  // Additional script for background music
+  fetch('bgm.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('bgm-container').innerHTML = html;
+    })
+    .then(() => {
+      import('./bgm.js').then(({ setupBackgroundMusic }) => {
+        setupBackgroundMusic(); // Call after DOM insert
+      });
+    });
+
+    // Sidebar Toggle
+    const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebarClose = document.getElementById('sidebarClose');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  // Open Sidebar and Show Overlay
+  function openSidebar() {
+    sidebar.classList.remove('-translate-x-full');
+    sidebarOverlay.classList.remove('hidden');
+  }
+
+  // Close Sidebar and Hide Overlay
+  function closeSidebar() {
+    sidebar.classList.add('-translate-x-full');
+    sidebarOverlay.classList.add('hidden');
+  }
+
+  // Event Listeners
+  if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+  if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // Accordion Toggle
+  document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.getAttribute('data-target');
+      const target = document.getElementById(targetId);
+
+      // Close other accordion contents
+      document.querySelectorAll('.accordion-content').forEach(content => {
+        if (content.id !== targetId) {
+          content.classList.add('hidden');
+        }
+      });
+
+      target.classList.toggle('hidden');
+    });
+  });
+
+  // Highlight active sidebar link based on current URL
+  const currentPath = window.location.pathname.split('/').pop(); // Get the current file name only
+const sidebarLinks = document.querySelectorAll('#sidebar a');
+
+sidebarLinks.forEach(link => {
+  const href = link.getAttribute('href').split('/').pop(); // Get the file name from the href
+
+  if (href === currentPath) {
+    // Highlight the link
+    link.classList.add('bg-orange-300', 'font-bold');
+
+    // Expand its parent accordion if it's hidden
+    const parentAccordion = link.closest('.accordion-content');
+    if (parentAccordion) {
+      parentAccordion.classList.remove('hidden');
+    }
+  }
+});
+
+  // Define sound objects
+  const sounds = {
+    sounds1: [
+      { file: './sounds/iqra3/(1).aac', text: 'بِ' }
+    ],
+    sounds2: [
+      { file: './sounds/iqra3/(5).aac', text: 'مَ مِ' },
+      { file: './sounds/iqra3/(4).aac', text: 'نَ نِ' },
+      { file: './sounds/iqra3/(3).aac', text: 'دَ دِ' },
+      { file: './sounds/iqra3/(2).aac', text: 'تَ تِ' }
+    ],
+    sounds3: [
+      { file: './sounds/iqra3/(6).aac', text: 'نَجَسَ' },
+      { file: './sounds/iqra3/(7).aac', text: 'نَبَتَ' }
+    ],
+    sounds4: [
+      { file: './sounds/iqra3/(8).aac', text: 'فِيعَالاَ' },
+      { file: './sounds/iqra3/(9).aac', text: 'فَاعَلَ' },
+      { file: './sounds/iqra3/(10).aac', text: 'بِيـــ' },
+      { file: './sounds/iqra3/(11).aac', text: 'سَمِيعِ' },
+      { file: './sounds/iqra3/(12).aac', text: 'وَاعَدَ' },
+      { file: './sounds/iqra3/(13).aac', text: 'قِيتَالاَ' },
+      { file: './sounds/iqra3/(14).aac', text: 'خَـٰشِعَاتِ' },
+      { file: './sounds/iqra3/(15).aac', text: 'خَـٰشِعِينَ' },
+      { file: './sounds/iqra3/(16).aac', text: 'حَكِيمِ' }
+    ]
+  };
+
+  // Define carousel and pagination behavior
+  const slidesWrapper = document.getElementById('carousel-slides');
+  const slideButtons = [sounds.sounds1, sounds.sounds2, sounds.sounds3, sounds.sounds4];
+  const pagination = document.getElementById('pagination');
+  let currentSlide = 0;
+  let currentAudio = null; // To track the currently playing audio
+
+  // Render Buttons for each slide
+  function renderButtons(slideIndex, container) {
+    container.innerHTML = '';
+    slideButtons[slideIndex].forEach((item) => {
+      const btn = document.createElement('button');
+      btn.className = 'bg-transparent font-lateef text-xl sm:text-4xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white hover:text-blue-600 px-2 lg:px-6 xl:px-10 2xl:px-12 rounded-md';
+      btn.textContent = item.text;
+
+      btn.addEventListener('click', () => {
+        // If an audio is already playing, prevent a new one from starting
+        if (currentAudio && !currentAudio.ended) {
+          return;
+        }
+
+        // Play the new audio
+        currentAudio = new Audio(item.file);
+        currentAudio.play().catch(err => console.log('Audio failed:', err));
+
+        // Change text color to green
+        btn.classList.add('text-blue-500');
+
+        // When the audio ends, change text color back to white
+        currentAudio.addEventListener('ended', () => {
+          btn.classList.remove('text-blue-500');
+          btn.classList.add('text-white');
+          currentAudio = null;
+        });
+      });
+
+      container.appendChild(btn);
+    });
+  }
+
+  // Slide navigation functions
+  function goToSlide(index) {
+    currentSlide = index;
+    slidesWrapper.style.transform = `translateX(-${index * 100}%)`;
+    updatePagination(); // Update pagination style
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % 2; // Adjust slide count if necessary
+    goToSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + 2) % 2; // Adjust slide count if necessary
+    goToSlide(currentSlide);
+  }
+
+  // Event Listeners for Slide Navigation
+  document.getElementById('nextBtn').addEventListener('click', nextSlide);
+  document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+  // Pagination function
+  function updatePagination() {
+    const dots = document.querySelectorAll('#pagination span');
+    dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+        dot.classList.add('bg-slate-700');
+      } else {
+        dot.classList.remove('bg-slate-700');
+      }
+    });
+  }
+
+  // Initialize pagination
+  for (let i = 0; i < 2; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'size-[20px] sm:size-[25px] md:size-[30px] lg:size-[35px] xl:size-[40px] 2xl:size-[45px] border border-white rounded-full cursor-pointer flex justify-center items-center';
+    dot.textContent = i + 1;
+    dot.addEventListener('click', () => goToSlide(i));
+    pagination.appendChild(dot);
+  }
+
+  // Initialize the carousel by rendering buttons for each slide
+  slidesWrapper.querySelectorAll('.grid').forEach((grid, index) => {
+    renderButtons(index, grid);
+  });
+
+  // Start by going to the first slide
+  goToSlide(0);
+</script>
+
+</body>
+
+</html>
+

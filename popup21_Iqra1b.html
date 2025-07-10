@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: 'Waknan';
+      src: url('./fonts/WakNan.ttf') format('truetype');
+    }
+
+    .font-waknan {
+      font-family: 'Waknan', sans-serif;
+    }
+
+    @font-face {
+      font-family: 'Lateef';
+      src: url('./fonts/Lateef-Regular.ttf') format('truetype');
+    }
+
+    .font-lateef {
+      font-family: 'Lateef', sans-serif;
+    }
+
+    /* Custom Scrollbar */
+    .scrollbar-custom::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Modal Container -->
+  <div id="modal" class="fixed inset-0 flex items-center justify-center">
+    <!-- Content -->
+    <div class="flex flex-row justify-center items-center h-full w-full pr-8">
+        <!-- Buttons -->
+         <div class="flex flex-col w-1/5 items-center p-2 sm:p-3 md:p-4 lg:p-5 xl:p-6 2xl:p-8 bg-transparent">
+            <button onclick="toggleTextContainer('first', this)" class="toggle-button transition-colors duration-300 size-8 sm:size-10 md:size-14 lg:size-20 xl:size-24 2xl:size-26  inline-flex items-center justify-center rounded-full border border-gray-300 bg-blue-300 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-gray-700 disabled:opacity-50 disabled:pointer-events-none mb-2 sm:mb-3 md:mb-4 
+            lg:mb-5 xl:mb-6 2xl:mb-7">
+                <img src="./images/huruf(a)/21.png" alt="Button 1" class="size-6 sm:size-6 md:size-6 lg:size-10 xl:size-12 2xl:size-14 object-contain">
+            </button>
+            <button onclick="toggleTextContainer('second', this)" class="toggle-button transition-colors duration-300 size-8 sm:size-10 md:size-14 lg:size-20 xl:size-24 2xl:size-26  inline-flex items-center justify-center rounded-full border border-gray-300 bg-blue-300 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-gray-700 disabled:opacity-50 disabled:pointer-events-none mb-2 sm:mb-3 md:mb-4 
+            lg:mb-5 xl:mb-6 2xl:mb-7">
+                <img src="./icons/mouth.png" alt="Button 2" class="size-6 sm:size-6 md:size-6 lg:size-10 xl:size-12 2xl:size-14 object-contain">
+            </button>
+            <button onclick="toggleTextContainer('third', this)" class="toggle-button transition-colors duration-300 size-8 sm:size-10 md:size-14 lg:size-20 xl:size-24 2xl:size-26  inline-flex items-center justify-center rounded-full border border-gray-300 bg-blue-300 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-gray-700 disabled:opacity-50 disabled:pointer-events-none mb-2 sm:mb-3 md:mb-4 
+            lg:mb-5 xl:mb-6 2xl:mb-7">
+                <img src="./icons/console2.png" alt="Button 3" class="size-6 sm:size-6 md:size-6 lg:size-10 xl:size-12 2xl:size-14 object-contain">
+            </button>
+            <button onclick="toggleTextContainer('fourth', this)" class="toggle-button transition-colors duration-300 size-8 sm:size-10 md:size-14 lg:size-20 xl:size-24 2xl:size-26  inline-flex items-center justify-center rounded-full border border-gray-300 bg-blue-300 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-gray-700 disabled:opacity-50 disabled:pointer-events-none mb-2 sm:mb-3 md:mb-4 
+            lg:mb-5 xl:mb-6 2xl:mb-7">
+                <img src="./icons/writing.png" alt="Button 4" class="size-6 sm:size-6 md:size-6 lg:size-10 xl:size-12 2xl:size-14 object-contain">
+            </button>
+        </div>
+        
+        <!-- Text Containers -->
+         <div class="flex rounded-xl justify-center items-center w-full h-full py-8 relative">
+            <!-- First Container -->
+             <div id="container-first" class="relative flex flex-col size-full bg-white rounded-3xl p-4 animate-fade-right">
+                <div class="flex flex-row items-center justify-center w-full h-full">
+                    <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                        <p class="text-black text-[80px] lg:text-[220px] font-lateef text-center">ق</p>
+                        <div class="flex items-center justify-center space-x-5 mb-2">
+                            <button id="play-sound-btn" class="flex items-center justify-center rounded-full p-2 bg-gray-300 hover:bg-gray-600" onclick="toggleSound()">
+                                <img src="./icons/volume.png" alt="Play" class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 xl:w-8 xl:h-8 2xl:w-9 2xl:h-9" />
+                            </button>
+                            <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-waknan font-semibold text-black">qaf</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center w-full h-full">
+                        <img src="./letters_img/21.png" alt="Image" class="size-[120px] sm:size-[170px] md:size-[220px] lg:size-[380px] xl:size-[400px] 2xl:size-[450px]" />
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Container -->
+             <div id="container-second" class="hidden relative  flex-col justify-center size-full bg-white rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-14 animate-fade-right">
+                <p class="text-center text-slate-950 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-waknan">Makhraj huruf</p>
+                <div class="flex items-center justify-center size-full">
+                    <video class="animate-fade animate-duration-[800ms] animate-delay-300 object-contain size-full rounded-lg mt-6" src="./videos/makhraj/21.webm" controls></video>
+                </div>
+            </div>
+            
+            <!-- Third Container (Quiz) -->
+             <div id="container-third" class="hidden relative  flex-col justify-center size-full bg-white rounded-2xl pt-2 sm:pt-2 md:pt-2 lg:pt-10 xl:pt-12 2xl:pt-14 animate-fade-right">
+              <div class="relative flex flex-col items-center size-full gap-y-2 sm:gap-y-10 md:gap-y-10 lg:gap-y-16 xl:gap-y-18 2xl:gap-y-20">
+                <p class="flex flex-col text-center text-black text-sm sm:text-sm md:text-lg lg:text-2xl xl:text-2xl 2xl:text-2xl font-waknan mb-4">
+                    Pilih huruf yang betul berdasarkan bunyi sebutan
+                </p>
+                <div class="flex flex-col items-center justify-center mb-4">
+                    <button class="flex items-center justify-center rounded-full p-2 bg-orange-300 hover:bg-orange-400" onclick="toggleSound()">
+                        <img src="./icons/volume.png" alt="Play" class="size-4 sm:size-5 md:size-6 lg:size-7 xl:size-8 2xl:size-9" />
+                    </button>
+                </div>
+                <div class="flex space-x-6 justify-center">
+                  <button class="answer-button relative size-14 sm:size-20 md:size-22 lg:size-28 xl:size-32 2xl:size-36 rounded-xl text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-lateef bg-orange-600/10 pointer-events-none" onclick="selectAnswer(0)">ص</button>
+                  <button class="answer-button relative size-14 sm:size-20 md:size-22 lg:size-28 xl:size-32 2xl:size-36 rounded-xl text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-lateef bg-orange-600/10 pointer-events-none" onclick="selectAnswer(1)">أ</button>
+                  <button class="answer-button relative size-14 sm:size-20 md:size-22 lg:size-28 xl:size-32 2xl:size-36 rounded-xl text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-lateef bg-orange-600/10 pointer-events-none" onclick="selectAnswer(2)">ق</button>
+              </div>
+            </div>
+            </div>
+            
+            <!-- Fourth Container -->
+             <div id="container-fourth" class="hidden relative flex-col justify-center size-full bg-white rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 2xl:p-14 animate-fade-right">
+                <p class="flex flex-col text-center text-slate-950 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl font-waknan">Cara menulis huruf</p>
+                <div class="flex items-center justify-center size-full">
+                    <video class="animate-fade animate-duration-[800ms] animate-delay-300 object-contain size-full rounded-lg mt-6" src="./videos/penulisan/21.webm" controls></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <script>
+    const textContainers = {
+  first: document.getElementById("container-first"),
+  second: document.getElementById("container-second"),
+  third: document.getElementById("container-third"),
+  fourth: document.getElementById("container-fourth"),
+};
+
+const correctAnswerIndex = 2;
+let gameFinished = false;
+let soundPlayed = false;
+let answerSelected = false;
+
+const alifSound = new Audio("./sounds/Hijaiyah/(21).aac");
+const cheerSound = new Audio("./sounds/correct.aac");
+const sadSound = new Audio("./sounds/wrong.aac");
+
+function toggleTextContainer(container, button) {
+  for (const key in textContainers) {
+    textContainers[key].style.display = key === container ? "flex" : "none";
+  }
+
+  document.querySelectorAll(".toggle-button").forEach((btn) => {
+    btn.classList.remove("bg-blue-500");
+    btn.classList.add("bg-blue-300");
+  });
+
+  button.classList.remove("bg-blue-300");
+  button.classList.add("bg-blue-500");
+
+  if (container === "third") {
+    resetGame();
+  }
+}
+
+function toggleSound() {
+  if (!soundPlayed) {
+    alifSound.play();
+    soundPlayed = true;
+    enableAnswerButtons();
+  } else {
+    alifSound.pause();
+    alifSound.currentTime = 0;
+  }
+}
+
+function enableAnswerButtons() {
+  const buttons = textContainers.third.querySelectorAll(".answer-button");
+  buttons.forEach((btn) => {
+    btn.classList.remove("bg-orange-600/10");
+    btn.classList.add("bg-orange-300");
+    btn.style.pointerEvents = "auto"; // Enable clicking
+  });
+}
+
+function disableAnswerButtons() {
+  const buttons = textContainers.third.querySelectorAll(".answer-button");
+  buttons.forEach((btn) => {
+    btn.style.pointerEvents = "none"; // Disable clicking
+  });
+}
+
+function selectAnswer(index) {
+  if (!soundPlayed || gameFinished || answerSelected) return;
+
+  answerSelected = true;
+  disableAnswerButtons();
+
+  const buttons = textContainers.third.querySelectorAll(".answer-button");
+
+  buttons.forEach((btn) => {
+    btn.classList.remove("bg-green-300", "bg-red-300");
+
+    // Remove existing feedback icons if any
+    const existingIcon = btn.querySelector(".feedback-icon");
+    if (existingIcon) {
+      existingIcon.remove();
+    }
+  });
+
+  const selectedButton = buttons[index];
+  selectedButton.classList.add("relative"); // Ensure positioning for the icon
+
+  const icon = document.createElement("img");
+  icon.className = "feedback-icon absolute -top-4 -right-4 size-[50px] sm:size-[50px] md:size-[60px] lg:size-[70px] xl:size-[90px] 2xl:size-[100px] overflow-visible";
+  icon.src = index === correctAnswerIndex
+    ? "./gif/correct.gif"
+    : "./gif/wrong.gif";
+  icon.alt = index === correctAnswerIndex ? "Correct" : "Wrong";
+
+  selectedButton.appendChild(icon);
+
+  if (index === correctAnswerIndex) {
+    selectedButton.classList.add("bg-green-300");
+    cheerSound.play();
+  } else {
+    selectedButton.classList.add("bg-red-300");
+    sadSound.play();
+  }
+
+  setTimeout(resetGame, 3000);
+}
+
+
+  
+  function resetGame() {
+    const buttons = textContainers.third.querySelectorAll(".answer-button");
+    buttons.forEach((btn) => {
+      btn.classList.remove("bg-green-300", "bg-red-300", "bg-orange-300");
+      btn.classList.add("bg-orange-600/10");
+      btn.style.pointerEvents = "none"; // Disable clicking again
+
+      // Remove feedback icon if still present
+    const icon = btn.querySelector(".feedback-icon");
+    if (icon) {
+      icon.remove();
+    }
+    });
+  
+    gameFinished = false;
+    soundPlayed = false;
+    answerSelected = false;
+  }
+  </script>
+  </body>
+  </html>

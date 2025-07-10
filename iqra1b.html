@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iqra 1: Huruf - Huruf Hijaiyah</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+@font-face {
+    font-family: 'Waknan';
+    src: url('./fonts/WakNan.ttf') format('truetype');
+  }
+
+  .font-waknan {
+    font-family: 'Waknan', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'TraditionalArabic';
+    src: url('./fonts/TraditionalArabic-Regular.ttf') format('truetype');
+  }
+
+  .font-traditionalArabic {
+    font-family: 'TraditionalArabic', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Lateef';
+    src: url('./fonts/Lateef-Regular.ttf') format('truetype');
+  }
+
+  .font-lateef {
+    font-family: 'Lateef', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'IntroRust';
+    src: url('./fonts/introrustg-base2line.otf') format('truetype');
+  }
+
+  .font-introRust {
+    font-family: 'IntroRust', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Amiri';
+    src: url('./fonts/Amiri-Regular.ttf') format('truetype');
+  }
+
+  .font-amiri {
+    font-family: 'Amiri', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'AmiriQuran';
+    src: url('./fonts/AmiriQuranRegular.ttf') format('truetype');
+  }
+
+  .font-amiriQuran {
+    font-family: 'AmiriQuran', sans-serif;
+  }
+
+
+    .scrollbar-custom::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+      background-color: #d97706;
+      border-radius: 4px;
+    }
+
+    .scrollable-area {
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 h-screen">
+
+  <!-- Background GIF -->
+  <img src="./gif/8.gif" alt="Background GIF"
+    class="absolute w-screen h-screen object-fill -z-10">
+
+  <!-- HEADER -->
+  <header class="p-2 relative z-20">
+    <div class="flex items-center space-x-1">
+
+      <!-- Navigation Toggle -->
+      <div class="flex-shrink-0">
+        <button type="button" id="sidebarToggle"
+          class="py-2 inline-flex justify-center items-center rounded-lg text-yellow-300 hover:text-yellow-200">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="./index.html" class="block hover:scale-110 duration-300">
+          <img
+            src="./images/logobutton.png"
+            alt="Logo"
+            class="w-12 h-7 sm:w-12 sm:h-7 md:w-14 md:h-8 lg:w-16 lg:h-10 xl:w-[80px] xl:h-12 2xl:w-[112px] 2xl:h-[62px] object-contain rounded-lg"
+          />
+        </a>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="flex-shrink-0 overflow-x-auto px-2">
+        <ol
+          class="flex whitespace-nowrap font-waknan text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-2xl">
+          <li class="inline-flex items-center">
+            <a href="./sub.html"
+              class="flex items-center font-semibold  text-yellow-300 hover:text-yellow-100">Iqra</a>
+            <svg class="shrink-0 mx-1 text-white" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+          <li class="inline-flex items-center">
+            <a href="./sub.html"
+              class="flex items-center font-semibold text-yellow-300 hover:text-yellow-100">Iqra 1</a>
+            <svg class="shrink-0 mx-1 text-white" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="m9 18 6-6-6-6"></path>
+            </svg>
+          </li>
+          <li class="inline-flex items-center font-bold text-yellow-400 truncate" aria-current="page">
+            Huruf-huruf Hijaiyah
+          </li>
+        </ol>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar Overlay -->
+  <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar"
+  class="font-waknan fixed top-0 left-0 transition-all duration-300 transform -translate-x-full h-full w-[256px] sm:w-[276px] md:w-[360px] lg:w-[476px] xl:w-[500px] 2xl:w-[528px] z-[80] bg-amber-200 border-none rounded-2xl">
+
+  <div class="flex justify-between items-center py-2 px-4 border-b border-amber-500">
+    <h3 class="font-bold text-black">
+      <img src="./images/title.png" alt="Iqra' Logo"
+        class="w-[80px] md:w-[88px] lg:w-[90px] xl:w-[150px] 2xl:w-[150px]" />
+    </h3>
+    <button type="button" id="sidebarClose"
+      class="size-8 inline-flex justify-center items-center bg-gray-100 rounded-full hover:bg-gray-200">
+      <span class="sr-only">Close</span>
+      <svg class="size-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="scrollable-area scrollbar-custom overflow-y-auto h-[calc(100%-64px)] p-2">
+    <nav class="w-full flex flex-col flex-wrap">
+      <ul class="space-y-4">
+        <!-- List of Iqra contents -->
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra1-submenu">
+            Iqra 1
+          </button>
+          <div id="iqra1-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra1a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/1.png" alt="Icon 1" class="size-16 mr-2"> Mengenal Nama Huruf Hijaiyah
+            </a>
+            <a href="./iqra1b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/2.png" alt="Icon 2" class="size-16 mr-2"> Belajar Huruf-huruf Hijaiyah
+            </a>
+            <a href="./iqra1c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/3.png" alt="Icon 3" class="size-16 mr-2"> Beza Bunyi Huruf
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra2-submenu">
+            Iqra 2
+          </button>
+          <div id="iqra2-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra2a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/5.png" alt="Icon 1" class="size-16 mr-2"> Sambung Huruf
+            </a>
+            <a href="./iqra2b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/6.png" alt="Icon 2" class="size-16 mr-2"> Bacaan Panjang
+            </a>
+            <a href="./iqra2c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra3-submenu">
+            Iqra 3
+          </button>
+          <div id="iqra3-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra3a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/7.png" alt="Icon 1" class="size-16 mr-2"> Baris Bawah
+            </a>
+            <a href="./iqra3b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/8.png" alt="Icon 2" class="size-16 mr-2"> Baris Depan
+            </a>
+            <a href="./iqra3c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/9.png" alt="Icon 3" class="size-16 mr-2"> Ya dan Waw Kecil
+            </a>
+            <a href="./iqra3d.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/10.png" alt="Icon 1" class="size-16 mr-2"> Ta Marbutah
+            </a>
+            <a href="./iqra3e.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/11.png" alt="Icon 2" class="size-16 mr-2"> Alif Zaidah
+            </a>
+            <a href="./iqra3f.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+        <li class="accordion-item">
+          <button class="accordion-toggle w-full flex items-center bg-orange-200 shadow-xl pl-4 hover:font-bold text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 rounded-lg hover:bg-orange-300 h-[60px] md:h-[75px] lg:h-[80px]"
+            data-target="iqra4-submenu">
+            Iqra 4
+          </button>
+          <div id="iqra4-submenu" class="accordion-content hidden space-y-2 bg-amber-100 p-2 rounded-b-lg">
+            <a href="./iqra4a.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/12.png" alt="Icon 1" class="size-16 mr-2"> Tanwin
+            </a>
+            <a href="./iqra4b.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/13.png" alt="Icon 2" class="size-16 mr-2"> Mim Sakinah
+            </a>
+            <a href="./iqra4c.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/14.png" alt="Icon 3" class="size-16 mr-2"> Nun Sakinah
+            </a>
+            <a href="./iqra4d.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/15.png" alt="Icon 2" class="size-16 mr-2"> Qalqalah
+            </a>
+            <a href="./iqra4e.html"
+              class="flex items-center hover:bg-gray-300 p-2 rounded-lg text-sm md:text-base">
+              <img src="./buttons/4.png" alt="Icon 3" class="size-16 mr-2"> Latihan
+            </a>
+          </div>
+        </li>
+      </ul>
+      <div class="h-16"></div> <!-- extra space -->
+    </nav>
+  </div>
+</div>
+
+
+   <!-- LETTER BUTTONS GRID -->
+   <div class="scrollable-area scrollbar-custom overflow-y-auto max-h-[calc(100%-100px)] p-2">
+    <div class="flex flex-wrap gap-4 mx-[70px] my-6 sm:gap-8 lg:gap-10 2xl:gap-10 justify-center items-center flex-row-reverse animate-fade-up" id="letters-container">
+      <!-- Buttons will be added dynamically here -->
+    </div>
+  </div>
+
+  <!-- 29 Popup Modals -->
+  <div id="popups-container">
+    <!-- Modals will be dynamically added here -->
+  </div>
+
+  <div id="bgm-container"></div>
+  
+  <script>
+    
+  // Additional script for background music
+  fetch('bgm.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('bgm-container').innerHTML = html;
+    })
+    .then(() => {
+      import('./bgm.js').then(({ setupBackgroundMusic }) => {
+        setupBackgroundMusic(); // Call after DOM insert
+      });
+    });
+
+    const letters = [
+      { letter: 'ا', text: 'Alif' },
+      { letter: 'ب', text: 'Ba' },
+      { letter: 'ت', text: 'Ta' },
+      { letter: 'ث', text: 'Tsa' },
+      { letter: 'ج', text: 'Jim' },
+      { letter: 'ح', text: 'Haa' },
+      { letter: 'خ', text: 'Kho' },
+      { letter: 'د', text: 'Dal' },
+      { letter: 'ذ', text: 'Dzal' },
+      { letter: 'ر', text: 'Ro' },
+      { letter: 'ز', text: 'Zal' },
+      { letter: 'س', text: 'Sin' },
+      { letter: 'ش', text: 'Syin' },
+      { letter: 'ص', text: 'Shod' },
+      { letter: 'ض', text: 'Dhod' },
+      { letter: 'ط', text: 'Tho' },
+      { letter: 'ظ', text: 'Zho' },
+      { letter: 'ع', text: 'Ain' },
+      { letter: 'غ', text: 'Ghain' },
+      { letter: 'ف', text: 'Fa' },
+      { letter: 'ق', text: 'Qaf' },
+      { letter: 'ك', text: 'Kaf' },
+      { letter: 'ل', text: 'Lam' },
+      { letter: 'م', text: 'Mim' },
+      { letter: 'ن', text: 'Nun' },
+      { letter: 'ه', text: 'Ha' },
+      { letter: 'و', text: 'Waw' },
+      { letter: 'ء', text: 'Hamzah' },
+      { letter: 'ي', text: 'Ya' },
+    ];
+  
+    const container = document.getElementById('letters-container');
+    const popupsContainer = document.getElementById('popups-container');
+  
+    // Generate letter buttons and popups
+    letters.forEach((item, index) => {
+      // BUTTONS
+      const button = document.createElement('button');
+      button.className = 'flex flex-col items-center justify-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 bg-yellow-100 rounded-xl w-[112px] h-[112px] shadow-md shadow-gray-600 border-4 border-pink-300 text-center';
+      button.innerHTML = `
+        <div class="text-5xl font-lateef">${item.letter}</div>
+        <div class="text-lg font-bold font-waknan mt-2">${item.text}</div>
+      `;
+      button.addEventListener('click', () => openPopup(index + 1));
+      container.appendChild(button);
+  
+      // POPUPS WITH IFRAME
+      const popup = document.createElement('div');
+      popup.id = `popup-${index + 1}`;
+      popup.className = 'fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50';
+      popup.innerHTML = `
+        <div class="bg-amber-100 rounded-lg shadow-xl p-2 sm:p-4 w-[330px] h-[300px] sm:w-[460px] md:w-[500px] lg:w-[750px] xl:w-[80%] 2xl:w-[85%] sm:h-[300px] md:h-[300px] lg:h-[486px] xl:h-[80%] 2xl:h-[85%] relative flex flex-col">
+            <button onclick="closePopup(${index + 1})" 
+             class="absolute top-2 right-4 text-gray-700 hover:text-black bg-transparent rounded-full p-1 font-bold text-xl sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-3xl">
+              ✕
+            </button>
+          <iframe src="./popup${index + 1}_Iqra1b.html" class="flex-grow"></iframe>
+        </div>
+      `;
+      popupsContainer.appendChild(popup);
+    });
+  
+    // Open popup
+    function openPopup(index) {
+      const popup = document.getElementById(`popup-${index}`);
+      if (popup) {
+        popup.classList.remove('hidden');
+        popup.classList.add('flex');
+      }
+    }
+  
+    window.closePopup = function(index) {
+      const popup = document.getElementById(`popup-${index}`);
+      if (popup) {
+        popup.classList.add('hidden');
+        popup.classList.remove('flex');
+      }
+    };
+  
+    // Sidebar Toggle
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarClose = document.getElementById('sidebarClose');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+  
+    // Open Sidebar and Show Overlay
+    function openSidebar() {
+      sidebar.classList.remove('-translate-x-full');
+      sidebarOverlay.classList.remove('hidden');
+    }
+  
+    // Close Sidebar and Hide Overlay
+    function closeSidebar() {
+      sidebar.classList.add('-translate-x-full');
+      sidebarOverlay.classList.add('hidden');
+    }
+  
+    // Event Listeners
+    if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+    if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+    if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+  
+    // Accordion Toggle
+    document.querySelectorAll('.accordion-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        const target = document.getElementById(targetId);
+  
+        // Close other accordion contents
+        document.querySelectorAll('.accordion-content').forEach(content => {
+          if (content.id !== targetId) {
+            content.classList.add('hidden');
+          }
+        });
+  
+        target.classList.toggle('hidden');
+      });
+    });
+  
+    // Highlight active sidebar link based on current URL
+    const currentPath = window.location.pathname.split('/').pop(); // Get the current file name only
+    const sidebarLinks = document.querySelectorAll('#sidebar a');
+  
+    sidebarLinks.forEach(link => {
+      const href = link.getAttribute('href').split('/').pop(); // Get the file name from the href
+  
+      if (href === currentPath) {
+        // Highlight the link
+        link.classList.add('bg-orange-300', 'font-bold');
+  
+        // Expand its parent accordion if it's hidden
+        const parentAccordion = link.closest('.accordion-content');
+        if (parentAccordion) {
+          parentAccordion.classList.remove('hidden');
+        }
+      }
+    });
+  </script>
+  
+</body>
+
+</html>
